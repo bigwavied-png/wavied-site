@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Wavie D</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body class="gold">
+
+<!-- BACKGROUND VIDEO -->
+<video class="bg-video" autoplay muted loop playsinline>
+  <source src="videos/background.mp4" type="video/mp4">
+</video>
+
+<!-- GRAIN -->
+<div class="grain"></div>
+
+<!-- MAIN HEADER -->
+<header class="main-header">
+  WAVIE D
+
+  <!-- THEME SWITCHER -->
+  <div class="theme-switcher">
+    <button onclick="setTheme('ice')">ICE</button>
+    <button onclick="setTheme('emerald')">EMERALD</button>
+    <button onclick="setTheme('gold')">GOLD</button>
+  </div>
+</header>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <button onclick="openTab('music')">Music</button>
+    <button onclick="openTab('videos')">Videos</button>
+    <button onclick="openTab('bio')">Bio</button>
+    <button onclick="openTab('vault')">Vault</button>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- MUSIC -->
+<div id="music" class="tab-panel active music-grid">
+
+  <!-- WE ALL IN -->
+  <div class="media-card">
+    <h3>We All In</h3>
+
+    <audio controls>
+      <source src="music/WeAllIn.mp3" type="audio/mpeg">
+    </audio>
+
+    <a 
+      href="https://washingtonian585.gumroad.com/l/kjddy"
+      target="_blank"
+      class="buy-btn">
+      BUY — $2+
+    </a>
+  </div>
+
+  <!-- VICTIM -->
+  <div class="media-card">
+    <h3>Victim</h3>
+
+    <audio controls>
+      <source src="music/Victim.mp3" type="audio/mpeg">
+    </audio>
+
+    <a 
+      href="https://washingtonian585.gumroad.com/l/mtjbdj"
+      target="_blank"
+      class="buy-btn">
+      BUY — $2+
+    </a>
+  </div>
+
+  <!-- YTB (FREE) -->
+  <div class="media-card">
+    <h3>YTB (FREE)</h3>
+
+    <audio controls>
+      <source src="music/YTB.mp3" type="audio/mpeg">
+    </audio>
+
+    <a 
+      href="https://washingtonian585.gumroad.com/l/dvrta"
+      target="_blank"
+      class="buy-btn free">
+      FREE DOWNLOAD
+    </a>
+  </div>
+
+</div>
+
+    <!-- VIDEOS -->
+    <div id="videos" class="tab-panel">
+      <div class="media-card">
+        <video controls muted playsinline>
+          <source src="videos/single-video.mp4" type="video/mp4">
+        </video>
+        <h3>Visual Preview</h3>
+      </div>
+    </div>
+
+    <!-- BIO -->
+<div id="bio" class="tab-panel">
+  <div class="media-card bio-card">
+    <img 
+      src="images/bio.jpg" 
+      alt="Wavie D Bio"
+      onclick="toggleBioFullscreen(this)"
+    >
+  </div>
+</div>
+
+    <!-- VAULT -->
+    <div id="vault" class="tab-panel">
+      <div class="vault-section">
+        <h2 class="vault-title">ENTER VAULT</h2>
+        <a href="vault.html" class="vault-enter-btn">UNLOCK</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+	
+<!-- SOCIAL MEDIA BAR (SPLIT CLICK ZONES) -->
+<footer class="social-bar split">
+  <a href="https://www.instagram.com/wavie_d/?hl=en"
+     target="_blank"
+     class="social ig"
+     aria-label="Instagram"></a>
+
+  <a href="https://www.facebook.com/WavieD/"
+     target="_blank"
+     class="social fb"
+     aria-label="Facebook"></a>
+
+  <a href="https://www.youtube.com/@WavieD"
+     target="_blank"
+     class="social yt"
+     aria-label="YouTube"></a>
+
+  <a href="https://www.tiktok.com/@therealwavied?lang=en-GB"
+     target="_blank"
+     class="social tt"
+     aria-label="TikTok"></a>
+</footer>
+
+<script src="script.js"></script>
+	<!-- SOCIAL FOOTER -->
+<div class="social-footer">
+  <img src="images/social.png" alt="Social Media Footer">
+
+  <a href="https://www.tiktok.com/@therealwavied?lang=en-GB" class="social-zone tt" target="_blank"></a>
+  <a href="https://www.facebook.com/WavieD/" class="social-zone fb" target="_blank"></a>
+  <a href="https://www.youtube.com/@WavieD" class="social-zone yt" target="_blank"></a>
+  <a href="https://www.instagram.com/wavie_d/?hl=en" class="social-zone ig" target="_blank"></a>
+</div>
