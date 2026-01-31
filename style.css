@@ -398,7 +398,9 @@ body.vault-bg .tab-panel {
   box-shadow: 0 0 18px var(--accent-glow);
   transform: translateY(-2px);
 }
-
+.buy-btn {
+  font-weight: 700;
+}
 /* =====================
    SOCIAL FOOTER
 ===================== */
