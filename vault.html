@@ -1,83 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta 
-  name="viewport" 
-  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
->
-<title>Wavie D — Vault</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wavie D — Vault</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body class="vault-bg gold">
 
 <div class="vault-box">
 
-  <!-- 🔒 LOCKED STATE -->
+  <!-- LOCKED -->
   <div id="vaultLocked" class="vault-section">
     <h2 class="vault-title">VAULT LOCKED</h2>
-
-    <p style="margin: 14px 0; opacity: 0.85;">
-      Exclusive unreleased content<br>
-      <strong>$20+ access required</strong>
+    <p>
+      Exclusive unreleased content<br />
+      <strong>$20 access required</strong>
     </p>
 
-  <!-- 💳 STRIPE VAULT BUTTON -->
-<button
-  id="stripeCheckout"
-  class="vault-enter-btn"
->
-  UNLOCK VAULT — $20
-</button>
+    <button id="buyBtn">Buy Now</button>
   </div>
 
-  <!-- 🔓 UNLOCKED STATE -->
+  <!-- UNLOCKED -->
   <div id="vaultContent" class="vault-section hidden">
     <h2 class="vault-title">WELCOME TO THE VAULT</h2>
 
-    <audio controls style="margin-top:20px; max-width:260px;">
-      <source src="music/vault-track.mp3" type="audio/mpeg">
+    <audio controls>
+      <source src="music/vault-track.mp3" type="audio/mpeg" />
     </audio>
   </div>
 
 </div>
 
 <script>
-/* =====================
-   VAULT ACCESS CHECK
-===================== */
-const params = new URLSearchParams(window.location.search);
-
-if (params.get("access") === "granted") {
-  const locked = document.getElementById("vaultLocked");
-  const content = document.getElementById("vaultContent");
-
-  if (locked) locked.remove();
-  if (content) content.classList.remove("hidden");
-}
-</script>
-	
-<script>
-document.getElementById("stripeCheckout")?.addEventListener("click", async () => {
-  try {
-    const response = await fetch("/api/create-checkout", {
-      method: "POST"
-    });
-
-    const data = await response.json();
-
-    if (data.url) {
+  document.getElementById("buyBtn").addEventListener("click", async () => {
+    try {
+      const res = await fetch(
+        "https://stripe-checkout.washington-10dee.workers.dev",
+        { method: "POST" }
+      );
+      const data = await res.json();
       window.location.href = data.url;
-    } else {
-      alert("Checkout failed. Please try again.");
+    } catch (e) {
+      alert("Checkout failed. Try again.");
+      console.error(e);
     }
-  } catch (err) {
-    alert("Payment system unavailable.");
-  }
-});
-</script>
+  });
 
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("access") === "granted") {
+    document.getElementById("vaultLocked")?.remove();
+    document.getElementById("vaultContent")?.classList.remove("hidden");
+  }
+</script>
 
 </body>
 </html>
