@@ -9,52 +9,62 @@
 
 <body class="vault-bg gold">
 
-<div class="vault-box">
+  <div class="vault-box">
 
-  <!-- LOCKED -->
-  <div id="vaultLocked" class="vault-section">
-    <h2 class="vault-title">VAULT LOCKED</h2>
-    <p>
-      Exclusive unreleased content<br />
-      <strong>$20 access required</strong>
-    </p>
+    <!-- 🔒 LOCKED -->
+    <div id="vaultLocked" class="vault-section">
+      <h2 class="vault-title">VAULT LOCKED</h2>
 
-    <button id="buyBtn">Buy Now</button>
+      <p>
+        Exclusive unreleased content<br />
+        <strong>$20 access required</strong>
+      </p>
+
+      <!-- IMPORTANT: class ADDED -->
+      <button id="buyBtn" class="vault-buy-btn">
+        Buy Now
+      </button>
+    </div>
+
+    <!-- 🔓 UNLOCKED -->
+    <div id="vaultContent" class="vault-section hidden">
+      <h2 class="vault-title">WELCOME TO THE VAULT</h2>
+
+      <audio controls>
+        <source src="music/vault-track.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
+
   </div>
 
-  <!-- UNLOCKED -->
-  <div id="vaultContent" class="vault-section hidden">
-    <h2 class="vault-title">WELCOME TO THE VAULT</h2>
+  <script>
+    document.getElementById("buyBtn").addEventListener("click", async () => {
+      try {
+        const res = await fetch(
+          "https://stripe-checkout.washington-10dee.workers.dev",
+          { method: "POST" }
+        );
 
-    <audio controls>
-      <source src="music/vault-track.mp3" type="audio/mpeg" />
-    </audio>
-  </div>
+        const data = await res.json();
 
-</div>
+        if (!data.url) {
+          alert("Checkout failed.");
+          return;
+        }
 
-<script>
-  document.getElementById("buyBtn").addEventListener("click", async () => {
-    try {
-      const res = await fetch(
-        "https://stripe-checkout.washington-10dee.workers.dev",
-        { method: "POST" }
-      );
-      const data = await res.json();
-      window.location.href = data.url;
-    } catch (e) {
-      alert("Checkout failed. Try again.");
-      console.error(e);
+        window.location.href = data.url;
+      } catch (e) {
+        alert("Checkout failed. Try again.");
+        console.error(e);
+      }
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("access") === "granted") {
+      document.getElementById("vaultLocked")?.remove();
+      document.getElementById("vaultContent")?.classList.remove("hidden");
     }
-  });
-
-  const params = new URLSearchParams(window.location.search);
-  if (params.get("access") === "granted") {
-    document.getElementById("vaultLocked")?.remove();
-    document.getElementById("vaultContent")?.classList.remove("hidden");
-  }
-</script>
+  </script>
 
 </body>
 </html>
-
