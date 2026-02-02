@@ -21,9 +21,12 @@
       </p>
 
       <!-- IMPORTANT: class ADDED -->
-      <button id="buyBtn" class="vault-buy-btn">
-    
-    </div>
+      <button
+  class="buy-btn"
+  onclick="window.location.href='https://buy.stripe.com/aFa8wQggVeaFc5G7yJ5c400'"
+>
+  Buy Now
+</button>
 
     <!-- 🔓 UNLOCKED -->
     <div id="vaultContent" class="vault-section hidden">
@@ -33,31 +36,9 @@
         <source src="music/vault-track.mp3" type="audio/mpeg" />
       </audio>
     </div>
-
   </div>
 
   <script>
-    document.getElementById("buyBtn").addEventListener("click", async () => {
-      try {
-        const res = await fetch(
-          "https://stripe-checkout.washington-10dee.workers.dev",
-          { method: "POST" }
-        );
-
-        const data = await res.json();
-
-        if (!data.url) {
-          alert("Checkout failed.");
-          return;
-        }
-
-        window.location.href = data.url;
-      } catch (e) {
-        alert("Checkout failed. Try again.");
-        console.error(e);
-      }
-    });
-
     const params = new URLSearchParams(window.location.search);
     if (params.get("access") === "granted") {
       document.getElementById("vaultLocked")?.remove();
