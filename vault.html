@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wavie D — Vault</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="vault-bg gold">
+
+  <div class="vault-box">
+
+    <!-- 🔒 LOCKED -->
+    <div id="vaultLocked" class="vault-section">
+      <h2 class="vault-title">VAULT LOCKED</h2>
+
+      <p>
+        Exclusive unreleased content<br />
+        <strong>$20 access required</strong>
+      </p>
+
+      <button
+        class="buy-btn"
+        onclick="window.location.href='https://buy.stripe.com/aFa8wQggVeaFc5G7yJ5c400'"
+      >
+        Buy Now
+      </button>
+    </div>
+
+    <!-- 🔓 UNLOCKED -->
+    <div id="vaultContent" class="vault-section hidden">
+      <h2 class="vault-title">WELCOME TO THE VAULT</h2>
+
+      <audio controls>
+        <source src="music/vault-track.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("access") === "granted") {
+      const locked = document.getElementById("vaultLocked");
+      const content = document.getElementById("vaultContent");
+
+      if (locked) locked.remove();
+      if (content) content.classList.remove("hidden");
+    }
+  </script>
+
+</body>
+</html>
