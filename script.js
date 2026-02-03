@@ -1,15 +1,24 @@
 // =====================
-// SIDEBAR TOGGLE TABS
+// GLOBAL SAFETY GUARD
+// Disable site JS on Vault pages
 // =====================
+if (document.body.classList.contains("vault-bg")) {
+  console.log("Vault page detected — main script disabled");
+} else {
+
+/* =====================
+   SIDEBAR TOGGLE TABS
+===================== */
 function openTab(tabId) {
   const tabs = document.querySelectorAll('.tab-panel');
   const buttons = document.querySelectorAll('.sidebar button');
   const target = document.getElementById(tabId);
 
+  if (!target) return;
+
   // If clicked tab is already open → CLOSE it
   if (target.classList.contains('active')) {
     target.classList.remove('active');
-
     buttons.forEach(btn => btn.classList.remove('active'));
     return;
   }
@@ -31,9 +40,12 @@ function openTab(tabId) {
 // Default closed (no auto-open)
 window.onload = () => {};
 
-/* BIO FULLSCREEN TOGGLE */
+/* =====================
+   BIO FULLSCREEN TOGGLE
+===================== */
 function toggleBioFullscreen(img) {
   const wrapper = img.parentElement;
+  if (!wrapper) return;
 
   if (wrapper.classList.contains("bio-fullscreen")) {
     wrapper.classList.remove("bio-fullscreen");
@@ -51,7 +63,7 @@ function setTheme(theme) {
 }
 
 // =====================
-// AUDIO PREVIEW LOCK (60s)
+// AUDIO PREVIEW LOCK
 // =====================
 function initAudioPreviews() {
   document.querySelectorAll("audio[data-preview]").forEach(audio => {
@@ -64,7 +76,6 @@ function initAudioPreviews() {
       if (audio.currentTime >= limit) {
         audio.pause();
         audio.currentTime = 0;
-
         alert("Preview ended. Purchase to unlock full track.");
       }
     });
@@ -76,9 +87,17 @@ function initAudioPreviews() {
 // =====================
 window.addEventListener("DOMContentLoaded", () => {
   setTheme("gold");
-  openTab("music");
+
+  if (document.getElementById("music")) {
+    openTab("music");
+  }
+
+  initAudioPreviews();
 });
-// FOOTER HIDE / SHOW ON SCROLL
+
+// =====================
+// FOOTER HIDE / SHOW
+// =====================
 let lastScrollY = window.scrollY;
 const footer = document.querySelector('.social-footer');
 
@@ -86,24 +105,13 @@ window.addEventListener('scroll', () => {
   if (!footer) return;
 
   if (window.scrollY > lastScrollY && window.scrollY > 100) {
-    // scrolling down
     footer.classList.add('hidden');
   } else {
-    // scrolling up
     footer.classList.remove('hidden');
   }
 
   lastScrollY = window.scrollY;
 });
-/* AUDIO PREVIEW LIMIT */
-document.querySelectorAll("audio[data-preview]").forEach(audio => {
-  const limit = parseInt(audio.dataset.preview);
 
-  audio.addEventListener("timeupdate", () => {
-    if (audio.currentTime >= limit) {
-      audio.pause();
-      audio.currentTime = 0;
-      alert("Preview ended — purchase to hear full track.");
-    }
-  });
-});
+} // 🔒 END VAULT SAFETY GUARD
+
