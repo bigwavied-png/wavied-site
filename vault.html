@@ -6,16 +6,12 @@
   <title>Wavie D — Vault</title>
   <link rel="stylesheet" href="style.css" />
 
+  <!-- 🔒 ACCESS GUARD -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const params = new URLSearchParams(window.location.search);
-      const access = params.get("access");
-
-      if (access === "granted") {
-        document.getElementById("vaultLocked").style.display = "none";
-        document.getElementById("vaultContent").style.display = "block";
-      }
-    });
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("access") !== "granted") {
+      window.location.href = "index.html";
+    }
   </script>
 </head>
 
@@ -23,40 +19,14 @@
 
   <div class="vault-box">
 
-    <!-- 🔒 LOCKED -->
-    <div id="vaultLocked" class="vault-section">
-      <h2 class="vault-title">VAULT LOCKED</h2>
+    <h2 class="vault-title">WELCOME TO THE VAULT</h2>
 
-      <p>
-        Exclusive unreleased content<br />
-        <strong>$20 access required</strong>
-      </p>
-
-      <!-- ✅ STRIPE BUY LINK -->
-      <a
-        href="https://buy.stripe.com/aFa8wQggVeaFc5G7yJ5c400"
-        class="buy-btn"
-        target="_blank"
-        rel="noopener"
-      >
-        Buy Now
-      </a>
-    </div>
-
-    <!-- 🔓 UNLOCKED -->
-    <div
-      id="vaultContent"
-      class="vault-section"
-      style="display:none;"
-    >
-      <h2 class="vault-title">WELCOME TO THE VAULT</h2>
-
-      <audio controls>
-        <source src="music/vault-track.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </div>
+    <audio controls>
+      <source src="music/vault-track.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
 
   </div>
+
 </body>
 </html>
