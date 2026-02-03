@@ -6,11 +6,11 @@
   <title>Wavie D — Vault</title>
   <link rel="stylesheet" href="style.css" />
 
-  <!-- 🔒 ACCESS GUARD -->
+  <!-- ACCESS GUARD -->
   <script>
     const params = new URLSearchParams(window.location.search);
     if (params.get("access") !== "granted") {
-      window.location.href = "index.html";
+      window.location.replace("index.html");
     }
   </script>
 </head>
@@ -18,13 +18,11 @@
 <body class="vault-bg gold">
 
   <div class="vault-box">
-
     <h2 class="vault-title">WELCOME TO THE VAULT</h2>
 
     <audio controls>
       <source src="music/vault-track.mp3" type="audio/mpeg" />
     </audio>
-
   </div>
 
 </body>
