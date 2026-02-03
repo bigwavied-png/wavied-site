@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const access = params.get("access");
+
+  if (access !== "granted") {
+    window.location.href = "/wavied-site/";
+  }
+</script>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
