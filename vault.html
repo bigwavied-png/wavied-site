@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const access = params.get("access");
-
-  if (access !== "granted") {
-    window.location.href = "index.html";
-  }
-</script>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wavie D — Vault</title>
   <link rel="stylesheet" href="style.css" />
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const access = params.get("access");
+
+      if (access === "granted") {
+        document.getElementById("vaultLocked").style.display = "none";
+        document.getElementById("vaultContent").style.display = "block";
+      }
+    });
+  </script>
 </head>
 
 <body class="vault-bg gold">
@@ -29,16 +32,23 @@
         <strong>$20 access required</strong>
       </p>
 
-      <button
+      <!-- ✅ STRIPE BUY LINK -->
+      <a
+        href="https://buy.stripe.com/aFa8wQggVeaFc5G7yJ5c400"
         class="buy-btn"
-        onclick="window.location.href='https://officialwavied.com/vault.html?access=granted'"
+        target="_blank"
+        rel="noopener"
       >
         Buy Now
-      </button>
+      </a>
     </div>
 
     <!-- 🔓 UNLOCKED -->
-    <div id="vaultContent" class="vault-section hidden">
+    <div
+      id="vaultContent"
+      class="vault-section"
+      style="display:none;"
+    >
       <h2 class="vault-title">WELCOME TO THE VAULT</h2>
 
       <audio controls>
