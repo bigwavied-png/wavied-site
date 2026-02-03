@@ -24,6 +24,26 @@
 </button>
 
   </div>
+<script>
+async function startCheckout() {
+  try {
+    const response = await fetch("/functions/api/create-checkout", {
+      method: "POST"
+    });
 
+    const data = await response.json();
+
+    if (!data.url) {
+      alert("Checkout error. Try again.");
+      return;
+    }
+
+    window.location.href = data.url;
+  } catch (err) {
+    console.error(err);
+    alert("Checkout failed.");
+  }
+}
+</script>
 </body>
 </html>
