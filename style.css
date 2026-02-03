@@ -350,7 +350,17 @@ body.vault-bg .tab-panel {
 
   transition: all 0.35s ease;
 }
+.vault-box {
+  border: 2px solid gold;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+  animation: goldPulse 3s infinite;
+}
 
+@keyframes goldPulse {
+  0% { box-shadow: 0 0 15px rgba(212,175,55,.4); }
+  50% { box-shadow: 0 0 35px rgba(212,175,55,.9); }
+  100% { box-shadow: 0 0 15px rgba(212,175,55,.4); }
+}
 .vault-enter-btn:hover {
   background: rgba(212,175,55,0.08);
   box-shadow:
