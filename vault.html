@@ -4,7 +4,7 @@
   const access = params.get("access");
 
   if (access !== "granted") {
-    window.location.href = "/wavied-site/";
+    window.location.href = "index.html";
   }
 </script>
 
@@ -48,15 +48,5 @@
     </div>
 
   </div>
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("access") === "granted") {
-      const locked = document.getElementById("vaultLocked");
-      const content = document.getElementById("vaultContent");
-      if (locked) locked.remove();
-      if (content) content.classList.remove("hidden");
-    }
-  </script>
 </body>
 </html>
