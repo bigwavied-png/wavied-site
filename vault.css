@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #111 0%, #000 70%);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ================= INTRO ================= */
+.intro {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.vault-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  text-align: center;
+}
+
+.countdown {
+  margin-top: 20px;
+  font-size: 3rem;
+  color: #d4af37;
+  text-shadow: 0 0 20px rgba(212,175,55,0.8);
+}
+
+/* ================= VAULT ================= */
+.hidden {
+  display: none;
+}
+
+.vault {
+  padding: 80px 20px;
+  text-align: center;
+  animation: fadeIn 2s ease forwards;
+}
+
+.vault-sub {
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+.glow {
+  color: #d4af37;
+  text-shadow: 0 0 25px rgba(212,175,55,0.9);
+}
+
+/* ================= GRID ================= */
+.vault-grid {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================= CARDS ================= */
+.vault-card {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(212,175,55,0.3);
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(212,175,55,0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.vault-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 45px rgba(212,175,55,0.6);
+}
+
+.vault-card h2 {
+  font-family: 'Cinzel', serif;
+  margin-bottom: 10px;
+}
+
+.price {
+  display: block;
+  margin: 15px 0;
+  color: #d4af37;
+  font-size: 1.2rem;
+}
+
+/* ================= BUTTON ================= */
+.vault-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 26px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #d4af37, #b08d2c);
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(212,175,55,0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vault-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(212,175,55,1);
+}
+
+/* ================= LOCKED ================= */
+.locked {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.locked-btn {
+  background: #333;
+  color: #aaa;
+  box-shadow: none;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
