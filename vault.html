@@ -2,35 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wavie D — Vault</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>The Vault | WAVIE D</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="vault.css">
 </head>
 
-<body class="vault-bg gold">
+<body>
 
-  <div class="vault-box">
-
-    <h2 class="vault-title">VAULT LOCKED</h2>
-
-    <p>
-      Exclusive unreleased content<br />
-      <strong>$20 access required</strong>
-    </p>
-
-    <!-- STRIPE PAYMENT LINK ONLY -->
-<div class="vault-buy-wrapper">
-  <a
-    class="buy-btn"
-    href="https://buy.stripe.com/aF8wQggVeaFc5G7yJ5c400"
-    target="_blank"
-    rel="noopener"
-  >
-    Buy Now
-  </a>
+<!-- ================= INTRO COUNTDOWN ================= -->
+<div id="intro" class="intro">
+  <h1 class="vault-title">THE VAULT OPENS IN</h1>
+  <div id="countdown" class="countdown">00:00:05</div>
 </div>
-  }
-});
-</script>
+
+<!-- ================= VAULT CONTENT ================= -->
+<div id="vault" class="vault hidden">
+
+  <h1 class="vault-title glow">WELCOME TO THE VAULT</h1>
+  <p class="vault-sub">Exclusive monthly releases · $20 per item</p>
+
+  <div class="vault-grid">
+
+    <!-- ITEM 1 -->
+    <div class="vault-card">
+      <h2>UNRELEASED TRACK #01</h2>
+      <p>Vault-exclusive audio</p>
+      <span class="price">$20</span>
+      <a href="https://buy.stripe.com/aFa8wQggVeaFc5G7yJ5c400" target="_blank" class="vault-btn">
+        UNLOCK ITEM
+      </a>
+    </div>
+
+    <!-- ITEM 2 -->
+    <div class="vault-card">
+      <h2>UNRELEASED TRACK #02</h2>
+      <p>Vault-exclusive audio</p>
+      <span class="price">$20</span>
+      <a href="https://buy.stripe.com/aFa8wQggVeaFc5G7yJ5c400" target="_blank" class="vault-btn">
+        UNLOCK ITEM
+      </a>
+    </div>
+
+    <!-- COMING SOON -->
+    <div class="vault-card locked">
+      <h2>MARCH DROP</h2>
+      <p>Coming Soon</p>
+      <span class="price">LOCKED</span>
+      <button class="vault-btn locked-btn">COMING SOON</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- JS -->
+<script src="vault.js"></script>
 </body>
 </html>
