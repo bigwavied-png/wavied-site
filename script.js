@@ -83,3 +83,6 @@ window.addEventListener('scroll', () => {
 
   lastScrollY = window.scrollY;
 });
+function goToVaultCheckout() {
+  window.location.href = "https://buy.stripe.com/aFa8wQggVeaFc5G7yJ5c400";
+}
