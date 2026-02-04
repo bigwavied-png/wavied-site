@@ -2,7 +2,10 @@
 // SIDEBAR TOGGLE TABS
 // =====================
 function openTab(tabId) {
+  if (!tabId) return; // ⛔ STOP undefined redirects
+
   const target = document.getElementById(tabId);
+
   if (!target) return; // ⛔️ STOP if tab does not exist
 
   const tabs = document.querySelectorAll('.tab-panel');
