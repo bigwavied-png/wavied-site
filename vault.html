@@ -19,35 +19,16 @@
     </p>
 
     <!-- STRIPE PAYMENT LINK ONLY -->
-   <button
-  type="button"
-  class="buy-btn"
-  id="buyBtn">
-  Buy Now
-</button>
-  </div>
-<script>
-document.getElementById("buyBtn").addEventListener("click", async (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-
-  try {
-    const response = await fetch("/functions/api/create-checkout", {
-      method: "POST"
-    });
-
-    const data = await response.json();
-
-    if (!data.url) {
-      alert("Stripe session failed");
-      console.error(data);
-      return;
-    }
-
-    window.location.assign(data.url);
-  } catch (err) {
-    console.error(err);
-    alert("Checkout error");
+<div class="vault-buy-wrapper">
+  <a
+    class="buy-btn"
+    href="https://buy.stripe.com/aF8wQggVeaFc5G7yJ5c400"
+    target="_blank"
+    rel="noopener"
+  >
+    Buy Now
+  </a>
+</div>
   }
 });
 </script>
