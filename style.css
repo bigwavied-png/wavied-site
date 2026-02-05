@@ -547,7 +547,6 @@ body.vault-bg .tab-panel {
     left: 50%;
     transform: translateX(-50%) translateZ(0);
     will-change: transform;
-  }
 }
 /* SOLD OUT VAULT ITEM */
 .vault-card.sold-out {
