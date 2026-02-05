@@ -58,4 +58,23 @@
 <!-- JS -->
 <script src="vault.js"></script>
 </body>
+  <script>
+fetch('/vault-sales.json')
+  .then(res => res.json())
+  .then(data => {
+    const maxSales = 500;
+
+    if (data.track01_sales >= maxSales) {
+      const btn = document.querySelector('#track01-btn');
+      if (btn) {
+        btn.outerHTML = `
+          <div class="vault-card sold-out">
+            <h2 class="sold-out-text">UNRELEASED TRACK #01</h2>
+            <p class="sold-out-label">SOLD OUT</p>
+          </div>
+        `;
+      }
+    }
+  });
+</script>
 </html>
