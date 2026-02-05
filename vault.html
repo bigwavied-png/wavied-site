@@ -51,13 +51,7 @@
       <span class="price">LOCKED</span>
       <button class="vault-btn locked-btn">COMING SOON</button>
     </div>
-
-  </div>
 </div>
-
-<!-- JS -->
-<script src="vault.js"></script>
-</body>
   <script>
 fetch('/vault-sales.json')
   .then(res => res.json())
@@ -72,6 +66,12 @@ fetch('/vault-sales.json')
             <h2 class="sold-out-text">UNRELEASED TRACK #01</h2>
             <p class="sold-out-label">SOLD OUT</p>
           </div>
+        `;
+      }
+    }
+  });
+</script>
+</body>
         `;
       }
     }
