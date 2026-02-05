@@ -27,22 +27,6 @@
   <p class="vault-sub">Exclusive monthly releases · $20 per item</p>
 
   <div class="vault-grid">
-<script>
-const openBtn = document.getElementById('openVaultBtn');
-const vaultDoor = document.getElementById('vault-door');
-
-const vaultSound = new Audio('/audio/vault-open.mp3');
-
-openBtn.addEventListener('click', () => {
-  vaultSound.play();
-  vaultDoor.style.opacity = '0';
-  vaultDoor.style.pointerEvents = 'none';
-
-  setTimeout(() => {
-    vaultDoor.remove();
-  }, 1200);
-});
-</script>
     <!-- ITEM 1 -->
     <div class="vault-card">
       <h2>UNRELEASED TRACK #01</h2>
