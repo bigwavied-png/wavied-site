@@ -393,7 +393,6 @@ body.vault-bg .tab-panel {
   .vault-title {
     font-size: 1.5rem;
     letter-spacing: 0.28em;
-  }
 }
 
 
@@ -487,8 +486,7 @@ body.vault-bg .tab-panel {
 .social-zone.ig { left: 51%; width: 8%; }
 @media (max-width: 768px) {
   .social-zone {
-    width: 14%;
-  }
+    width: 14%;}
 }
 
 /* =====================
@@ -523,9 +521,7 @@ body.vault-bg .tab-panel {
   }
 
   .bio-card img,
-  video {
-    max-width: 90vw;
-  }
+  video {max-width: 90vw;}
 }
 /* =====================
    HARD LOCK FOOTER
