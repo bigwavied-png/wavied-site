@@ -549,3 +549,25 @@ body.vault-bg .tab-panel {
     will-change: transform;
   }
 }
+/* SOLD OUT VAULT ITEM */
+.vault-card.sold-out {
+  border: 2px solid gold;
+  background: rgba(0, 0, 0, 0.85);
+  text-align: center;
+}
+
+.sold-out-text {
+  color: gold;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.sold-out-label {
+  margin-top: 10px;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: gold;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.9);
+  letter-spacing: 4px;
+}
