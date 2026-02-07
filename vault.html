@@ -51,14 +51,15 @@
       <button class="vault-btn locked-btn">COMING SOON</button>
     </div>
 </div>
-  <script>
+ <script>
 fetch('/vault-sales.json')
   .then(res => res.json())
   .then(data => {
     const maxSales = 500;
 
     if (data.track01_sales >= maxSales) {
-      const btn = document.querySelector('#track01-btn');
+      const btn = document.getElementById('track01-btn');
+
       if (btn) {
         btn.outerHTML = `
           <div class="vault-card sold-out">
@@ -71,9 +72,4 @@ fetch('/vault-sales.json')
   });
 </script>
 </body>
-        `;
-      }
-    }
-  });
-</script>
 </html>
