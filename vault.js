@@ -19,3 +19,17 @@ const timer = setInterval(() => {
     }, 1500);
   }
 }, 1000);
+const openBtn = document.getElementById('openVaultBtn');
+const vaultDoor = document.getElementById('vault-door');
+
+const vaultSound = new Audio('/audio/vault-open.mp3');
+
+openBtn.addEventListener('click', () => {
+  vaultSound.play();
+  vaultDoor.style.opacity = '0';
+  vaultDoor.style.pointerEvents = 'none';
+
+  setTimeout(() => {
+    vaultDoor.remove();
+  }, 1200);
+});
