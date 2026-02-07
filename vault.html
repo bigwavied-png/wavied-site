@@ -51,7 +51,30 @@
       <button class="vault-btn locked-btn">COMING SOON</button>
     </div>
 </div>
- <script>
+<script>
+/* ===== COUNTDOWN LOGIC ===== */
+let timeLeft = 5;
+const countdownEl = document.getElementById('countdown');
+const vaultEl = document.getElementById('vault');
+const introEl = document.getElementById('intro');
+
+const countdownTimer = setInterval(() => {
+  timeLeft--;
+
+  if (countdownEl) {
+    countdownEl.textContent = `00:00:0${timeLeft}`;
+  }
+
+  if (timeLeft <= 0) {
+    clearInterval(countdownTimer);
+
+    if (introEl) introEl.style.display = 'none';
+    if (vaultEl) vaultEl.classList.remove('hidden');
+  }
+}, 1000);
+
+
+/* ===== AUTO SOLD-OUT LOGIC ===== */
 fetch('/vault-sales.json')
   .then(res => res.json())
   .then(data => {
