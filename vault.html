@@ -81,7 +81,7 @@ const countdownTimer = setInterval(() => {
 <audio id="vault-sound" src="/audio/vault-open.mp3" preload="auto"></audio>
 
 /* ===== AUTO SOLD-OUT LOGIC ===== */
-fetch('/vault-sales.json')
+fetch('vault-sales.json')
   .then(res => res.json())
   .then(data => {
     const maxSales = 500;
