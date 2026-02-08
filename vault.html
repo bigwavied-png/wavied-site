@@ -73,6 +73,12 @@ const countdownTimer = setInterval(() => {
   }
 }, 1000);
 
+  <!-- VAULT DOOR OVERLAY -->
+<div id="vault-door">
+  <button id="open-vault-btn">OPEN VAULT</button>
+</div>
+
+<audio id="vault-sound" src="/audio/vault-open.mp3" preload="auto"></audio>
 
 /* ===== AUTO SOLD-OUT LOGIC ===== */
 fetch('/vault-sales.json')
