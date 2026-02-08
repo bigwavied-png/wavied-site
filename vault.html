@@ -98,20 +98,74 @@ fetch('vault-sales.json')
         `;
       },
   <script>
+<script>
+/* =============================
+   COUNTDOWN (CANNOT BREAK)
+============================= */
+let timeLeft = 5;
+const countdownEl = document.getElementById('countdown');
+const vaultEl = document.getElementById('vault');
+const introEl = document.getElementById('intro');
+
+const countdownTimer = setInterval(() => {
+  timeLeft--;
+
+  if (countdownEl) {
+    countdownEl.textContent = `00:00:0${timeLeft}`;
+  }
+
+  if (timeLeft <= 0) {
+    clearInterval(countdownTimer);
+    if (introEl) introEl.style.display = 'none';
+    if (vaultEl) vaultEl.classList.remove('hidden');
+  }
+}, 1000);
+
+/* =============================
+   VAULT DOOR
+============================= */
 const vaultDoor = document.getElementById('vault-door');
 const openBtn = document.getElementById('open-vault-btn');
 const vaultSound = document.getElementById('vault-sound');
 
-openBtn.addEventListener('click', () => {
-  vaultSound.currentTime = 0;
-  vaultSound.play();
+if (openBtn) {
+  openBtn.addEventListener('click', () => {
+    if (vaultSound) {
+      vaultSound.currentTime = 0;
+      vaultSound.play();
+    }
 
-  vaultDoor.classList.add('open');
+    vaultDoor.classList.add('open');
 
-  setTimeout(() => {
-    vaultDoor.style.display = 'none';
-  }, 1400);
-});
+    setTimeout(() => {
+      vaultDoor.style.display = 'none';
+    }, 1400);
+  });
+}
+
+/* =============================
+   SOLD-OUT LOGIC (NON-BLOCKING)
+============================= */
+fetch('vault-sales.json')
+  .then(res => res.json())
+  .then(data => {
+    const maxSales = 500;
+
+    if (data.track02_sales >= maxSales) {
+      const soldCard = document.getElementById('track02');
+      if (soldCard) {
+        soldCard.innerHTML = `
+          <h2 class="sold-out-text">UNRELEASED TRACK #02</h2>
+          <p class="sold-out-label">SOLD OUT</p>
+        `;
+        soldCard.classList.add('sold-out');
+      }
+    }
+  })
+  .catch(() => {
+    console.log('Sales data unavailable — vault still opens');
+  });
+</script>
 </script>
 </body>
 </html>
