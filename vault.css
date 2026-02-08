@@ -168,3 +168,36 @@ body {
   background: gold;
   color: black;
 }
+#vault-door {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #111 0%, #000 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#open-vault-btn {
+  font-size: 1.3rem;
+  padding: 18px 40px;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #d4af37, #8f6b1f);
+  color: #000;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 40px rgba(212,175,55,.5);
+  letter-spacing: 2px;
+}
+
+#vault-door.open {
+  animation: vaultFade 1.4s ease forwards;
+}
+
+@keyframes vaultFade {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
