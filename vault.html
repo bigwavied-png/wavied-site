@@ -100,5 +100,20 @@ fetch('/vault-sales.json')
     }
   });
 </script>
+const vaultDoor = document.getElementById('vault-door');
+const openBtn = document.getElementById('open-vault-btn');
+const vaultSound = document.getElementById('vault-sound');
+
+openBtn.addEventListener('click', () => {
+  vaultSound.currentTime = 0;
+  vaultSound.play();
+
+  vaultDoor.classList.add('open');
+
+  setTimeout(() => {
+    vaultDoor.style.display = 'none';
+  }, 1400);
+});
+</script>
 </body>
 </html>
